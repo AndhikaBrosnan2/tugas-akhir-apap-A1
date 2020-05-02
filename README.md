@@ -23,7 +23,7 @@
 | :---:   | :-: | :-: |
 | 1806269606 | Andhika Brosnan | - |
 | 1806269732 | Jeremy Andre Sitorus | - |
-| 1806269713 | Georgius Yoga | -t |
+| 1806269713 | Georgius Yoga | - |
 
 **Kontrak Tahap 3 Tugas Akhir**
 
