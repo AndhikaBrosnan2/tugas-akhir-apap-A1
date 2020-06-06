@@ -21,9 +21,9 @@
 
 | NPM | Nama Lengkap | Fitur Yang Akan Diselesaikan |
 | :---:   | :-: | :-: |
-| 1806269606 | Andhika Brosnan | - |
-| 1806269732 | Jeremy Andre Sitorus | - |
-| 1806269713 | Georgius Yoga | - |
+| 1806269606 | Andhika Brosnan | pinjaman |
+| 1806269732 | Jeremy Andre Sitorus | merapikan layout |
+| 1806269713 | Georgius Yoga | simpanan |
 
 **Kontrak Tahap 3 Tugas Akhir**
 
