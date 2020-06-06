@@ -14,6 +14,10 @@ public class PinjamanModel implements Serializable {
     private int id;
 
     @NotNull
+    @Column(name = "id_anggota")
+    private int id_anggota;
+
+    @NotNull
     @Column(name = "tanggal_pengajuan", nullable = false)
     private Date tanggal_pengajuan;
 
@@ -36,21 +40,6 @@ public class PinjamanModel implements Serializable {
     @NotNull
     @Column(name = "status", nullable = false)
     private int status;
-
-    @Column(name = "id_anggota")
-    private int id_anggota;
-
-    public PinjamanModel(int id, @NotNull Date tanggal_pengajuan, @NotNull Date tanggal_disetujui, @NotNull Date tanggal_pengembalian, @NotNull int jumlah_pinjaman, @NotNull int jumlah_pengembalian, @NotNull int status, int id_anggota) {
-        this.id = id;
-        this.tanggal_pengajuan = tanggal_pengajuan;
-        this.tanggal_disetujui = tanggal_disetujui;
-        this.tanggal_pengembalian = tanggal_pengembalian;
-        this.jumlah_pinjaman = jumlah_pinjaman;
-        this.jumlah_pengembalian = jumlah_pengembalian;
-        this.status = status;
-        this.id_anggota = id_anggota;
-    }
-
 
     public int getId() {
         return id;

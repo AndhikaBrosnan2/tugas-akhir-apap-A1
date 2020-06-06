@@ -13,7 +13,7 @@ export default class AddSimpanan extends Component {
     }
 
     initialState = {
-        id: '', nama: '', ktp: '', tempat_lahir: '', tanggal_lahir: '', alamat: '', telepon: '', is_pengurus: ''
+        id: '', tanggal_setor: '', jumlah: '', id_jenis_simpanan: '', id_anggota_penyetor: '', id_anggota_penerima: ''
     }
 
     componentDidMount() {
@@ -31,13 +31,11 @@ export default class AddSimpanan extends Component {
                 if (response.data != null) {
                     this.setState({
                         id: response.data.id,
-                        nama: response.data.nama,
-                        ktp: response.data.ktp,
-                        tempat_lahir: response.data.tempat_lahir,
-                        tanggal_lahir: response.data.tanggal_lahir,
-                        alamat: response.data.alamat,
-                        telepon: response.data.telepon,
-                        is_pengurus: response.data.is_pengurus? "Ya" : "Tidak"
+                        tanggal_setor: response.data.tanggal_setor,
+                        jumlah: response.data.jumlah,
+                        id_jenis_simpanan: response.data.id_jenis_simpanan,
+                        id_anggota_penyetor: response.data.id_anggota_penyetor,
+                        id_anggota_penerima: response.data.id_anggota_penerima
                     });
                 }
             }).catch((error) => {
@@ -53,14 +51,13 @@ export default class AddSimpanan extends Component {
         event.preventDefault();
 
         const simpanan = {
-            nama: this.state.nama,
-            ktp: this.state.ktp,
-            tempat_lahir: this.state.tempat_lahir,
-            tanggal_lahir: new Date(this.state.tanggal_lahir),
-            alamat: this.state.alamat,
-            telepon: this.state.telepon,
-            is_pengurus: this.state.is_pengurus
+            tanggal_setor: new Date(this.state.tanggal_setor),
+            jumlah: this.state.jumlah,
+            id_jenis_simpanan: this.state.id_jenis_simpanan,
+            id_anggota_penyetor: this.state.id_anggota_penyetor,
+            id_anggota_penerima: this.state.id_anggota_penerima
         };
+
 
         axios.post("http://localhost:8080/simpanan/add", simpanan)
             .then(response => {
@@ -73,6 +70,7 @@ export default class AddSimpanan extends Component {
                 }
             })
         this.setState(this.initialState);
+
     };
 
     simpananChange = event => {
@@ -83,7 +81,7 @@ export default class AddSimpanan extends Component {
 
     render() {
 
-        const { nama, ktp, tempat_lahir, tanggal_lahir, alamat, telepon, is_pengurus } = this.state;
+        const { tanggal_setor, jumlah, id_jenis_simpanan, id_anggota_penyetor, id_anggota_penerima} = this.state;
         return (
 
             <div>
@@ -97,63 +95,44 @@ export default class AddSimpanan extends Component {
                     <Form onReset={this.resetSimpanan} onSubmit={this.submitSimpanan} id="simpananFormId">
                         <Card.Body>
                             <Form.Row>
-                                <Form.Group as={Col} controlId="formGridNama">
-                                    <Form.Label>Nama</Form.Label>
+                                <Form.Group as={Col} controlId="formGridTanggalSetor">
+                                    <Form.Label>Tanggal Setor</Form.Label>
                                     <Form.Control required
-                                                  type="text" placeholder="Nama" name="nama"
-                                                  value={nama} autoComplete="off"
+                                                  type="date" placeholder="Tanggal Setor" name="tanggal_setor"
+                                                  value={tanggal_setor} autoComplete="off"
                                                   onChange={this.simpananChange} />
                                 </Form.Group>
-                                <Form.Group as={Col} controlId="formGridKTP">
-                                    <Form.Label>KTP</Form.Label>
+                                <Form.Group as={Col} controlId="formGridJml">
+                                    <Form.Label>Jumlah</Form.Label>
                                     <Form.Control required
-                                                  type="text" placeholder="KTP" name="ktp"
-                                                  value={ktp} autoComplete="off"
-                                                  onChange={this.simpananChange} />
-                                </Form.Group>
-                            </Form.Row>
-                            <Form.Row>
-                                <Form.Group as={Col} controlId="formGridTempat_lahir">
-                                    <Form.Label>Tempat Lahir</Form.Label>
-                                    <Form.Control required
-                                                  type="text" placeholder="Tempat Lahir" name="tempat_lahir"
-                                                  value={tempat_lahir} autoComplete="off"
-                                                  onChange={this.simpananChange} />
-                                </Form.Group>
-                                <Form.Group as={Col} controlId="formGridTanggal_lahir">
-                                    <Form.Label>Tanggal Lahir</Form.Label>
-                                    <Form.Control required
-                                                  type="date" placeholder="Tanggal Lahir" name="tanggal_lahir"
-                                                  value={tanggal_lahir} autoComplete="off"
+                                                  type="text" placeholder="Jumlah" name="jumlah"
+                                                  value={jumlah} autoComplete="off"
                                                   onChange={this.simpananChange} />
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
-                                <Form.Group as={Col} controlId="formGridAlamat">
-                                    <Form.Label>Alamat</Form.Label>
+                                <Form.Group as={Col} controlId="formGridJnsSimpanan">
+                                    <Form.Label>Id Jenis Simpanan</Form.Label>
                                     <Form.Control required
-                                                  type="text" placeholder="Alamat" name="alamat"
-                                                  value={alamat} autoComplete="off"
+                                                  type="text" placeholder="Jenis Simpanan" name="id_jenis_simpanan"
+                                                  value={id_jenis_simpanan} autoComplete="off"
                                                   onChange={this.simpananChange} />
                                 </Form.Group>
-                                <Form.Group as={Col} controlId="formGridTelepon">
-                                    <Form.Label>Telepon</Form.Label>
+                                <Form.Group as={Col} controlId="formGridAgtPenyetor">
+                                    <Form.Label>Id Anggota Penyetor</Form.Label>
                                     <Form.Control required
-                                                  type="text" placeholder="Telepon" name="telepon"
-                                                  value={telepon} autoComplete="off"
+                                                  type="text" placeholder="Id Anggota Penyetor" name="id_anggota_penyetor"
+                                                  value={id_anggota_penyetor} autoComplete="off"
                                                   onChange={this.simpananChange} />
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
-                                <Form.Group as={Col} controlId="formGridIs_Pengurus">
-                                    <Form.Label>Pengurus</Form.Label>
+                                <Form.Group as={Col} controlId="formGridAgtPenerima">
+                                    <Form.Label>Id Anggota Penerima</Form.Label>
                                     <Form.Control required
-                                                  as="select" name="is_pengurus"
-                                                  value={is_pengurus} autoComplete="off"
-                                                  onChange={this.simpananChange}>
-                                        <option value={false}>Tidak</option>
-                                        <option value={true}>Ya</option>
-                                    </Form.Control>
+                                                  type="text" placeholder="Id Anggota Penerima" name="id_anggota_penerima"
+                                                  value={id_anggota_penerima} autoComplete="off"
+                                                  onChange={this.simpananChange} />
                                 </Form.Group>
                             </Form.Row>
                         </Card.Body>

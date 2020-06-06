@@ -14,7 +14,7 @@ export default class AddPinjaman extends Component {
 
     // eslint-disable-next-line
     initialState = {
-        id: '', id_anggota: '', status: '', jumlah_kembali: '', jumlah_pinjaman: '', tanggal_disetujui: '', tanggal_pengajuan: '', tanggal_pengembalian: ''
+        id: '', id_anggota: '', status: '', jumlah_pengembalian: '', jumlah_pinjaman: '', tanggal_disetujui: '', tanggal_pengajuan: '', tanggal_pengembalian: ''
     }
 
     componentDidMount() {
@@ -33,7 +33,7 @@ export default class AddPinjaman extends Component {
                     this.setState({
                         id: response.data.id,
                         nama_anggota: response.data.nama_anggota,
-                        jumlah_kembali: response.data.jumlah_kembali,
+                        jumlah_pengembalian: response.data.jumlah_pengembalian,
                         jumlah_pinjaman: response.data.jumlah_pinjaman,
                         tanggal_disetujui: response.data.tanggal_disetujui,
                         tanggal_pengajuan: response.data.tanggal_pengajuan,
@@ -54,11 +54,11 @@ export default class AddPinjaman extends Component {
 
         const pinjaman = {
             nama_anggota: this.state.nama_anggota,
-            jumlah_kembali: this.state.jumlah_kembali,
+            jumlah_pengembalian: this.state.jumlah_pengembalian,
             jumlah_pinjaman: this.state.jumlah_pinjaman,
             tanggal_disetujui: new Date(this.state.tanggal_disetujui),
-            tanggal_pengajuan: this.state.tanggal_pengajuan,
-            tanggal_pengembalian: this.state.tanggal_pengembalian
+            tanggal_pengajuan: new Date(this.state.tanggal_pengajuan),
+            tanggal_pengembalian: new Date(this.state.tanggal_pengembalian)
         };
 
         axios.post("http://localhost:8080/pinjaman/add", pinjaman)
@@ -76,13 +76,13 @@ export default class AddPinjaman extends Component {
 
     pinjamanChange = event => {
         this.setState({
-            [event.target.nama_anggota]: event.target.value
+            [event.target.name]: event.target.value
         });
     }
 
     render() {
 
-        const { id_anggota, status, jumlah_kembali, jumlah_pinjaman, tanggal_disetujui, tanggal_pengajuan, tanggal_pengembalian} = this.state;
+        const { id_anggota, status, jumlah_pengembalian, jumlah_pinjaman, tanggal_disetujui, tanggal_pengajuan, tanggal_pengembalian} = this.state;
         return (
 
             <div>
@@ -100,22 +100,25 @@ export default class AddPinjaman extends Component {
                                     <Form.Label>Id Anggota</Form.Label>
                                     <Form.Control required
                                                   type="text" placeholder="Id Anggota" name="id_anggota"
+                                                  value={id_anggota}
                                                    autoComplete="off"
-                                                  onChange={this.PinjamanChange} />
+                                                  onChange={this.pinjamanChange} />
                                 </Form.Group>
                                 <Form.Group as={Col} controlId="formGridStatus">
                                     <Form.Label>Status</Form.Label>
                                     <Form.Control required
                                                   type="text" placeholder="Status" name="status"
+                                                  value={status}
                                                   autoComplete="off"
                                                   onChange={this.pinjamanChange} />
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row>
-                                <Form.Group as={Col} controlId="formGridJumlah_kembali">
+                                <Form.Group as={Col} controlId="formGridjumlah_pengembalian">
                                     <Form.Label>Jumlah Kembali</Form.Label>
                                     <Form.Control required
-                                                  type="text" placeholder="Jumlah Kembali" name="jumlah_kembali"
+                                                  type="text" placeholder="Jumlah Kembali" name="jumlah_pengembalian"
+                                                  value={jumlah_pengembalian}
                                                   autoComplete="off"
                                                   onChange={this.pinjamanChange} />
                                 </Form.Group>
@@ -123,6 +126,7 @@ export default class AddPinjaman extends Component {
                                     <Form.Label>Jumlah Pinjaman</Form.Label>
                                     <Form.Control required
                                                   type="text" placeholder="Jumlah Pinjaman" name="jumlah_pinjaman"
+                                                  value={jumlah_pinjaman}
                                                   autoComplete="off"
                                                   onChange={this.pinjamanChange} />
                                 </Form.Group>
@@ -132,6 +136,7 @@ export default class AddPinjaman extends Component {
                                     <Form.Label>Tanggal Disetujui</Form.Label>
                                     <Form.Control required
                                                   type="date" placeholder="Tanggal Disetujui" name="tanggal_disetujui"
+                                                  value={tanggal_disetujui}
                                                   autoComplete="off"
                                                   onChange={this.pinjamanChange} />
                                 </Form.Group>
@@ -142,6 +147,7 @@ export default class AddPinjaman extends Component {
                                     <Form.Label>Tanggal Pengajuan</Form.Label>
                                     <Form.Control required
                                                   type="date" placeholder="Tanggal pengajuan" name="tanggal_pengajuan"
+                                                  value={tanggal_pengajuan}
                                                   autoComplete="off"
                                                   onChange={this.pinjamanChange} />
                                 </Form.Group>
@@ -149,6 +155,7 @@ export default class AddPinjaman extends Component {
                                     <Form.Label>Tanggal Pengembalian</Form.Label>
                                     <Form.Control required
                                                   type="date" placeholder="Tanggal Pengembalian" name="tanggal_pengembalian"
+                                                  value={tanggal_pengembalian}
                                                   autoComplete="off"
                                                   onChange={this.pinjamanChange}>
                                     </Form.Control>

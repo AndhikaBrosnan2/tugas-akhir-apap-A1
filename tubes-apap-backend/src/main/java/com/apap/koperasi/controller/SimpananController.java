@@ -31,7 +31,6 @@ public class SimpananController {
 
     @PostMapping(value = "/add")
     public SimpananModel addSimpanan (@RequestBody SimpananModel simpanan){
-        String nia = String.valueOf(getRandomNia());
         return simpananService.addSimpanan(simpanan);
     }
 

@@ -1,13 +1,11 @@
 package com.apap.koperasi.controller;
 
-
 import com.apap.koperasi.model.PinjamanModel;
 import com.apap.koperasi.service.PinjamanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Random;
 
 @RestController
 @RequestMapping("/pinjaman")
