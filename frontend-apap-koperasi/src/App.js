@@ -13,6 +13,7 @@ import DetailAnggota from './Components/Anggota/DetailAnggota';
 import Simpanan from "./Components/Simpanan/Simpanan";
 import AddPinjaman from "./Components/Pinjaman/AddPinjaman";
 import AddSimpanan from "./Components/Simpanan/AddSimpanan";
+import Landing from "./Components/Landing";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Row>
           <Col lg={12} style={marginTop}>
             <Switch>
+              <Route path="/" exact component={Landing} />
               <Route path="/detailAnggota/:id" exact component={DetailAnggota} />
               <Route path="/Beranda" exact component={Beranda} />
               <Route path="/addAnggota" exact component={AddAnggota} />
