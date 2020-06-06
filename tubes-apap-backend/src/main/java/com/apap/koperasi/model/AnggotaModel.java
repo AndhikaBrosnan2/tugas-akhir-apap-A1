@@ -1,7 +1,5 @@
 package com.apap.koperasi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -59,22 +57,6 @@ public class AnggotaModel implements Serializable{
     @Size(max = 200)
     @Column(name = "uuid_user")
     private String uuid_user;
-
-//    @OneToMany(mappedBy = "anggota", fetch = FetchType.LAZY)
-//    @JsonIgnore
-//    private List<PinjamanModel> daftarPinjaman = new ArrayList<PinjamanModel>();
-
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "uuid_user", referencedColumnName = "uuid")
-//    private UserModel user;
-//
-//    @OneToMany(mappedBy = "anggota_penyetor", fetch = FetchType.LAZY)
-//    @JsonIgnore
-//    private List<SimpananModel> daftarSimpananPenyetor = new ArrayList<SimpananModel>();
-//
-//    @OneToMany(mappedBy = "anggota_penerima", fetch = FetchType.LAZY)
-//    @JsonIgnore
-//    private List<SimpananModel> daftarSimpananPenerima = new ArrayList<SimpananModel>();
 
     public int getId() {
         return id;
@@ -156,36 +138,4 @@ public class AnggotaModel implements Serializable{
         this.uuid_user = uuid_user;
     }
 
-    //    public List<PinjamanModel> getDaftarPinjaman() {
-//        return daftarPinjaman;
-//    }
-//
-//    public void setDaftarPinjaman(List<PinjamanModel> daftarPinjaman) {
-//        this.daftarPinjaman = daftarPinjaman;
-//    }
-//
-//    public UserModel getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(UserModel user) {
-//        this.user = user;
-//    }
-//
-//
-//    public List<SimpananModel> getDaftarSimpananPenyetor() {
-//        return daftarSimpananPenyetor;
-//    }
-//
-//    public void setDaftarSimpananPenyetor(List<SimpananModel> daftarSimpananPenyetor) {
-//        this.daftarSimpananPenyetor = daftarSimpananPenyetor;
-//    }
-//
-//    public List<SimpananModel> getDaftarSimpananPenerima() {
-//        return daftarSimpananPenerima;
-//    }
-//
-//    public void setDaftarSimpananPenerima(List<SimpananModel> daftarSimpananPenerima) {
-//        this.daftarSimpananPenerima = daftarSimpananPenerima;
-//    }
 }

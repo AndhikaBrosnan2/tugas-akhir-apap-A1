@@ -56,10 +56,11 @@ export default class Beranda extends Component {
                             <thead>
                             <tr>
                                 <th>Nomor</th>
-                                <th>Nama</th>
-                                <th>Nia</th>
-                                <th>Alamat</th>
-                                <th>Pengurus</th>
+                                <th>Id Anggota Penerima</th>
+                                <th>Id Anggota Penyetor</th>
+                                <th>Id Jenis Simpanan</th>
+                                <th>Jumlah</th>
+                                <th>Tanggal Setor</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -67,15 +68,16 @@ export default class Beranda extends Component {
                             {
                                 this.state.listSimpanan.length === 0 ?
                                     <tr align="center">
-                                        <td colSpan="6">No Data available</td>
+                                        <td colSpan="7">No Data available</td>
                                     </tr> :
                                     this.state.listSimpanan.map((simpanan, index) => (
                                         <tr key={simpanan.id}>
                                             <td>{index + 1}</td>
-                                            <td>{simpanan.nama}</td>
-                                            <td>{simpanan.nia}</td>
-                                            <td>{simpanan.alamat}</td>
-                                            <td>{simpanan.is_pengurus ? "Ya" : "Tidak"}</td>
+                                            <td>{simpanan.id_anggota_penerima}</td>
+                                            <td>{simpanan.id_anggota_penyetor}</td>
+                                            <td>{simpanan.id_jenis_simpanan}</td>
+                                            <td>{simpanan.jumlah}</td>
+                                            <td>{simpanan.tanggal_setor}</td>
                                             <td>
                                                 <ButtonGroup>
                                                     <Link to={"detailSimpanan/" + simpanan.id} className="btn btn-sm btn-outline-primary mr-2">Detail</Link>
