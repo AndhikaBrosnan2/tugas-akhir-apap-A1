@@ -14,6 +14,8 @@ import Simpanan from "./Components/Simpanan/Simpanan";
 import AddPinjaman from "./Components/Pinjaman/AddPinjaman";
 import AddSimpanan from "./Components/Simpanan/AddSimpanan";
 import Landing from "./Components/Landing";
+import DetailSimpanan from "./Components/Simpanan/DetailSimpanan";
+import DetailPinjaman from "./Components/Pinjaman/DetailPinjaman";
 
 function App() {
 
@@ -30,6 +32,8 @@ function App() {
             <Switch>
               <Route path="/" exact component={Landing} />
               <Route path="/detailAnggota/:id" exact component={DetailAnggota} />
+              {/*<Route path="/detailAnggota/:id" exact component={DetailSimpanan} />*/}
+              <Route path="/detailPinjaman/:id" exact component={DetailPinjaman} />
               <Route path="/Beranda" exact component={Beranda} />
               <Route path="/addAnggota" exact component={AddAnggota} />
               <Route path="/edit/:id" exact component={AddAnggota} />

@@ -42,7 +42,7 @@ export default class DetailSimpanan extends Component {
                                 <h5>Detail Simpanan</h5>
                             </div>
                             <div className="col">
-                                <Link to={"/edit/"+this.state.simpanan.id} className="btn btn-sm btn-outline-info float-right">Edit</Link>
+                                {/*<Link to={"/edit/"+this.state.simpanan.id} className="btn btn-sm btn-outline-info float-right">Edit</Link>*/}
                             </div>
                         </div>
                     </Card.Header>
@@ -50,54 +50,38 @@ export default class DetailSimpanan extends Component {
                         <div>
                             <div className="row">
                                 <div className="col">
-                                    <h6>NIA</h6>
+                                    <h6>Tanggal Setor</h6>
                                     <ul className="list-group">
-                                        <li className="list-group-item">{this.state.simpanan.nia}</li>
+                                        <li className="list-group-item">{this.state.simpanan.tanggal_setor}</li>
                                     </ul>
                                 </div>
                                 <div className="col">
-                                    <h6>KTP</h6>
+                                    <h6>Jumlah</h6>
                                     <ul className="list-group">
-                                        <li className="list-group-item">{this.state.simpanan.ktp}</li>
+                                        <li className="list-group-item">{this.state.simpanan.jumlah}</li>
                                     </ul>
                                 </div>
                                 <div className="col">
-                                    <h6>UUID</h6>
+                                    <h6>Id Jenis Simpanan</h6>
                                     <ul className="list-group">
-                                        <li className="list-group-item">{this.state.simpanan.uuid_user}</li>
+                                        <li className="list-group-item">{this.state.simpanan.id_jenis_simpanan}</li>
                                     </ul>
                                 </div>
                             </div>
                             <br></br>
-                            <h6>Nama</h6>
+                            <h6>Id Penyetor</h6>
                             <ul className="list-group">
-                                <li className="list-group-item">{this.state.simpanan.nama}</li>
+                                <li className="list-group-item">{this.state.simpanan.id_anggota_penyetor}</li>
                             </ul>
                             <br></br>
                             <div className="row">
                                 <div className="col">
-                                    <h6>Tempat Lahir</h6>
+                                    <h6>Id Anggota Penerima</h6>
                                     <ul className="list-group">
-                                        <li className="list-group-item">{this.state.simpanan.tempat_lahir}</li>
-                                    </ul>
-                                </div>
-                                <div className="col">
-                                    <h6>Tanggal Lahir</h6>
-                                    <ul className="list-group">
-                                        <li className="list-group-item">{moment(this.tglLahir).format('DD-MM-YYYY')}</li>
+                                        <li className="list-group-item">{this.state.simpanan.id_anggota_penerima}</li>
                                     </ul>
                                 </div>
                             </div>
-                            <br></br>
-                            <h6>Alamat</h6>
-                            <ul className="list-group">
-                                <li className="list-group-item">{this.state.simpanan.alamat}</li>
-                            </ul>
-                            <br></br>
-                            <h6>Pengurus</h6>
-                            <ul className="list-group">
-                                <li className="list-group-item">{this.state.simpanan.is_pengurus ? "Ya" : "Tidak"}</li>
-                            </ul>
                         </div>
                     </Card.Body>
                 </Card>

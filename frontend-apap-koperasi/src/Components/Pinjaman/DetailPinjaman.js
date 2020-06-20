@@ -42,7 +42,7 @@ export default class DetailPinjaman extends Component {
                                 <h5>Detail Pinjaman</h5>
                             </div>
                             <div className="col">
-                                <Link to={"/edit/"+this.pinjaman.id} className="btn btn-sm btn-outline-info float-right">Edit</Link>
+                                {/*<Link to={"/edit/"+this.pinjaman.id} className="btn btn-sm btn-outline-info float-right">Edit</Link>*/}
                             </div>
                         </div>
                     </Card.Header>
@@ -50,54 +50,50 @@ export default class DetailPinjaman extends Component {
                         <div>
                             <div className="row">
                                 <div className="col">
-                                    <h6>NIA</h6>
+                                    <h6>Id Anggota</h6>
                                     <ul className="list-group">
-                                        <li className="list-group-item">{this.state.pinjaman.nia}</li>
+                                        <li className="list-group-item">{this.state.pinjaman.id_anggota}</li>
                                     </ul>
                                 </div>
                                 <div className="col">
-                                    <h6>KTP</h6>
+                                    <h6>Status</h6>
                                     <ul className="list-group">
-                                        <li className="list-group-item">{this.state.pinjaman.ktp}</li>
+                                        <li className="list-group-item">{this.state.pinjaman.status}</li>
                                     </ul>
                                 </div>
                                 <div className="col">
-                                    <h6>UUID</h6>
+                                    <h6>Jumlah Kembali</h6>
                                     <ul className="list-group">
-                                        <li className="list-group-item">{this.state.pinjaman.uuid_user}</li>
+                                        <li className="list-group-item">{this.state.pinjaman.jumlah_pengembalian}</li>
                                     </ul>
                                 </div>
                             </div>
                             <br></br>
-                            <h6>Nama</h6>
+                            <h6>Jumlah Pinjaman</h6>
                             <ul className="list-group">
-                                <li className="list-group-item">{this.state.pinjaman.nama}</li>
+                                <li className="list-group-item">{this.state.pinjaman.jumlah_pinjaman}</li>
                             </ul>
                             <br></br>
                             <div className="row">
                                 <div className="col">
-                                    <h6>Tempat Lahir</h6>
+                                    <h6>Tanggal Disetujui</h6>
                                     <ul className="list-group">
-                                        <li className="list-group-item">{this.state.pinjaman.tempat_lahir}</li>
+                                        <li className="list-group-item">{this.state.pinjaman.tanggal_disetujui}</li>
                                     </ul>
                                 </div>
                                 <div className="col">
-                                    <h6>Tanggal Lahir</h6>
+                                    <h6>Tanggal Pengajuan</h6>
                                     <ul className="list-group">
-                                        <li className="list-group-item">{moment(this.tglLahir).format('DD-MM-YYYY')}</li>
+                                        <li className="list-group-item">{this.state.pinjaman.tanggal_pengajuan}</li>
                                     </ul>
                                 </div>
                             </div>
                             <br></br>
-                            <h6>Alamat</h6>
+                            <h6>Tanggal Pengembalian</h6>
                             <ul className="list-group">
-                                <li className="list-group-item">{this.state.pinjaman.alamat}</li>
+                                <li className="list-group-item">{this.state.pinjaman.tanggal_pengembalian}</li>
                             </ul>
-                            <br></br>
-                            <h6>Pengurus</h6>
-                            <ul className="list-group">
-                                <li className="list-group-item">{this.state.pinjaman.is_pengurus ? "Ya" : "Tidak"}</li>
-                            </ul>
+
                         </div>
                     </Card.Body>
                 </Card>
